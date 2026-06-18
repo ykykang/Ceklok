@@ -1,5 +1,7 @@
 # ceklok
 
+<img src="icons/icon128.png" alt="ceklok" width="64" />
+
 Chrome extension for logging office vs WFH days and tracking your monthly office attendance target (default: 12 days/month). Auto-resets each month — previous month data stays in storage, progress ring and insight start fresh.
 
 ## Installation (load unpacked — not published to Chrome Web Store)
