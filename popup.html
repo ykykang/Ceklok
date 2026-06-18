@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>ceklok</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="ticket-header">
+      <div>
+        <p class="eyebrow">CEKLOK</p>
+        <h1 id="todayDate" class="today-date">—</h1>
+      </div>
+      <button id="settingsBtn" class="icon-btn" aria-label="Pengaturan" title="Pengaturan">⚙</button>
+    </header>
+
+    <section id="todayAction" class="today-card"></section>
+
+    <section class="progress-section">
+      <div class="progress-label-row">
+        <span class="progress-count"><span id="officeCount">0</span><span class="progress-sep">/</span><span id="targetVal">12</span></span>
+        <span class="progress-caption">ngantor bulan ini</span>
+      </div>
+      <div class="progress-bar-track">
+        <div id="progressBar" class="progress-bar-fill"></div>
+      </div>
+      <p id="insightText" class="insight">Memuat…</p>
+    </section>
+
+    <section class="punchcard">
+      <div class="punchcard-head">
+        <span id="monthLabel" class="eyebrow">—</span>
+        <div class="legend">
+          <span class="legend-office">■ Ngantor</span>
+          <span class="legend-wfh">□ WFH</span>
+        </div>
+      </div>
+      <div class="weekday-row">
+        <span>S</span><span>S</span><span>R</span><span>K</span><span>J</span><span>S</span><span>M</span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="pastDatePanel" class="past-date-panel hidden"></section>
+
+    <section id="settingsPanel" class="settings-panel hidden">
+      <label class="field">
+        <span>Target ngantor / bulan</span>
+        <input type="number" id="targetInput" min="1" max="31" />
+      </label>
+      <label class="field row">
+        <span>Reminder harian</span>
+        <input type="checkbox" id="reminderToggle" />
+      </label>
+      <label class="field">
+        <span>Jam reminder (hari kerja)</span>
+        <input type="time" id="reminderTimeInput" />
+      </label>
+      <button id="saveSettingsBtn" class="primary-btn">Simpan pengaturan</button>
+      <p id="savedNote" class="saved-note hidden">Tersimpan ✓</p>
+      <button id="testNotifBtn" class="secondary-btn" type="button">Tes notifikasi sekarang</button>
+    </section>
+
+    <footer class="footnote">Reset otomatis tiap tanggal 1 — data bulan lalu tetap tersimpan.</footer>
+  </div>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
