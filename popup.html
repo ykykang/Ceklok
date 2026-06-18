@@ -46,23 +46,14 @@
 
     <section id="settingsPanel" class="settings-panel hidden">
       <label class="field">
-        <span>Target ngantor / bulan</span>
+        <span>Monthly office target</span>
         <input type="number" id="targetInput" min="1" max="31" />
       </label>
-      <label class="field row">
-        <span>Reminder harian</span>
-        <input type="checkbox" id="reminderToggle" />
-      </label>
-      <label class="field">
-        <span>Jam reminder (hari kerja)</span>
-        <input type="time" id="reminderTimeInput" />
-      </label>
-      <button id="saveSettingsBtn" class="primary-btn">Simpan pengaturan</button>
-      <p id="savedNote" class="saved-note hidden">Tersimpan ✓</p>
-      <button id="testNotifBtn" class="secondary-btn" type="button">Tes notifikasi sekarang</button>
+      <button id="saveSettingsBtn" class="primary-btn">Save settings</button>
+      <p id="savedNote" class="saved-note hidden">Saved ✓</p>
     </section>
 
-    <footer class="footnote">Reset otomatis tiap tanggal 1 — data bulan lalu tetap tersimpan.</footer>
+    <footer class="footnote">Resets on the 1st each month — previous months stay saved.</footer>
   </div>
 
   <script src="shared.js"></script>

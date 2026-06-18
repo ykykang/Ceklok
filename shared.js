@@ -3,14 +3,12 @@
 
 const DEFAULT_SETTINGS = {
   target: 12,
-  reminderEnabled: true,
-  reminderTime: "09:00",
 };
 
-const DAY_NAMES_ID = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+const DAY_NAMES_ID = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MONTH_NAMES_ID = [
-  "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-  "Juli", "Agustus", "September", "Oktober", "November", "Desember",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
 
 function pad2(n) {
@@ -70,7 +68,6 @@ function countByStatus(monthLog, status) {
   return Object.values(monthLog).filter((s) => s === status).length;
 }
 
-// Hitung berapa hari kerja (Senin-Jumat) yang TERSISA di bulan ini, termasuk hari ini.
 function workdaysRemainingInMonth(today) {
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -83,29 +80,28 @@ function workdaysRemainingInMonth(today) {
   return count;
 }
 
-// Insight singkat ala "on pace" tracker buat ditampilkan di popup.
 function computeInsight(monthLog, today, target) {
   const officeCount = countByStatus(monthLog, "office");
   const remaining = target - officeCount;
   const workdaysLeft = workdaysRemainingInMonth(today);
 
   if (remaining <= 0) {
-    return { tone: "good", text: `Target ${target}x ngantor bulan ini udah tercapai 🎉` };
+    return { tone: "good", text: `Monthly target of ${target} office days reached.` };
   }
   if (remaining > workdaysLeft) {
     return {
       tone: "bad",
-      text: `Sisa ${workdaysLeft} hari kerja, tapi butuh ${remaining}x ngantor lagi. Kemungkinan kekurangan, atur strategi yuk.`,
+      text: `${workdaysLeft} workdays left but need ${remaining} more office days — target out of reach.`,
     };
   }
   if (remaining === workdaysLeft) {
     return {
       tone: "warn",
-      text: `Sisa ${workdaysLeft} hari kerja dan butuh ngantor di semua hari itu (${remaining}x). Ketat, tapi masih kekejar.`,
+      text: `Need to go in every remaining workday (${remaining} of ${workdaysLeft}). Tight but doable.`,
     };
   }
   return {
     tone: "ok",
-    text: `Butuh ${remaining}x ngantor lagi dari ${workdaysLeft} hari kerja yang tersisa. Masih aman.`,
+    text: `Need ${remaining} more office days from ${workdaysLeft} workdays left. On track.`,
   };
 }

@@ -14,10 +14,10 @@ function showPastDatePicker(date, dateKey, currentStatus) {
       <button class="link-btn" id="closePastPanel" type="button">✕</button>
     </div>
     <div class="stamp-row">
-      <button class="stamp-btn office" data-status="office" type="button">■ Ngantor</button>
+      <button class="stamp-btn office" data-status="office" type="button">■ Office</button>
       <button class="stamp-btn wfh" data-status="wfh" type="button">□ WFH</button>
     </div>
-    ${currentStatus ? '<button class="link-btn clear-btn" id="clearPastBtn" type="button">Hapus catatan</button>' : ""}`;
+    ${currentStatus ? '<button class="link-btn clear-btn" id="clearPastBtn" type="button">Clear</button>' : ""}`;
 
   panel.classList.remove("hidden");
 
@@ -53,11 +53,11 @@ function renderTodayCard(status, editing) {
   const el = document.getElementById("todayAction");
 
   if (status && !editing) {
-    const label = status === "office" ? "■ Ngantor" : "□ WFH";
+    const label = status === "office" ? "■ Office" : "□ WFH";
     el.innerHTML = `
       <div class="status-badge ${status}">
-        <span>Hari ini: <strong>${label}</strong></span>
-        <button id="changeBtn" class="link-btn" type="button">Ubah</button>
+        <span>Today: <strong>${label}</strong></span>
+        <button id="changeBtn" class="link-btn" type="button">Change</button>
       </div>`;
     document.getElementById("changeBtn").addEventListener("click", () => {
       renderTodayCard(status, true);
@@ -66,9 +66,9 @@ function renderTodayCard(status, editing) {
   }
 
   el.innerHTML = `
-    <p class="prompt">Hari ini ngantor atau WFH?</p>
+    <p class="prompt">Office or WFH today?</p>
     <div class="stamp-row">
-      <button class="stamp-btn office" data-status="office" type="button">■ Ngantor</button>
+      <button class="stamp-btn office" data-status="office" type="button">■ Office</button>
       <button class="stamp-btn wfh" data-status="wfh" type="button">□ WFH</button>
     </div>`;
   el.querySelectorAll("[data-status]").forEach((btn) => {
@@ -125,7 +125,7 @@ function renderGrid(monthLog) {
 
     cell.className = classes.join(" ");
     cell.textContent = String(d);
-    cell.title = status ? (status === "office" ? "Ngantor" : "WFH") : "Belum dicatat";
+    cell.title = status ? (status === "office" ? "Office" : "WFH") : "Not logged";
     grid.appendChild(cell);
 
     if (!isWeekend(date) && key < dKey) {
@@ -146,8 +146,6 @@ function renderGrid(monthLog) {
 
 function renderSettingsForm(settings) {
   document.getElementById("targetInput").value = settings.target;
-  document.getElementById("reminderToggle").checked = settings.reminderEnabled;
-  document.getElementById("reminderTimeInput").value = settings.reminderTime;
 }
 
 async function refreshAll() {
@@ -167,11 +165,8 @@ async function handlePick(status) {
 async function handleSaveSettings() {
   const targetRaw = parseInt(document.getElementById("targetInput").value, 10);
   const target = Number.isFinite(targetRaw) ? Math.min(31, Math.max(1, targetRaw)) : 12;
-  const reminderEnabled = document.getElementById("reminderToggle").checked;
-  const reminderTime = document.getElementById("reminderTimeInput").value || "09:00";
 
-  await saveSettings({ target, reminderEnabled, reminderTime });
-  chrome.runtime.sendMessage({ type: "settingsUpdated" });
+  await saveSettings({ target });
   await refreshAll();
 
   const note = document.getElementById("savedNote");
@@ -186,9 +181,6 @@ function init() {
     document.getElementById("settingsPanel").classList.toggle("hidden");
   });
   document.getElementById("saveSettingsBtn").addEventListener("click", handleSaveSettings);
-  document.getElementById("testNotifBtn").addEventListener("click", () => {
-    chrome.runtime.sendMessage({ type: "testNotification" });
-  });
 
   refreshAll();
 }

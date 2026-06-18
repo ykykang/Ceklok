@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Ceklok",
   "version": "1.0.0",
-  "description": "Catat hari ngantor vs WFH, auto-reset tiap bulan, plus reminder harian biar gak lupa nge-log.",
-  "permissions": ["storage", "alarms", "notifications"],
+  "description": "Track office vs WFH days against a monthly target. Auto-resets each month.",
+  "permissions": ["storage"],
   "background": {
     "service_worker": "background.js"
   },
