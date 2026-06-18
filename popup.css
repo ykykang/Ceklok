@@ -22,12 +22,10 @@ body {
 }
 
 .app {
-  margin: 10px;
+  margin: 8px;
   background: var(--paper);
-  border: 1.5px solid var(--border);
-  border-radius: 16px;
+  border: 1.5px solid var(--ink);
   overflow: hidden;
-  box-shadow: 0 2px 14px rgba(45, 41, 38, 0.13);
 }
 
 /* ---------- Header ---------- */
@@ -57,10 +55,10 @@ body {
 
 .icon-btn {
   background: none;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  width: 30px;
-  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  width: 28px;
+  height: 28px;
   font-size: 13px;
   cursor: pointer;
   color: var(--muted);
@@ -94,10 +92,10 @@ body {
 
 .stamp-btn {
   flex: 1;
-  padding: 13px 8px;
+  padding: 11px 8px;
   background: var(--paper);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
   cursor: pointer;
   font-size: 11.5px;
   font-weight: 700;
@@ -105,10 +103,9 @@ body {
   text-transform: uppercase;
   color: var(--ink);
   font-family: ui-monospace, monospace;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-  box-shadow: 0 1px 3px rgba(45,41,38,0.07);
+  transition: background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
 }
-.stamp-btn:active { transform: scale(0.96); box-shadow: none; }
+.stamp-btn:active { transform: scale(0.97); }
 .stamp-btn.office:hover { background: var(--office-soft); border-color: var(--office); color: var(--office); }
 .stamp-btn.wfh:hover   { background: var(--wfh-soft);    border-color: var(--wfh);    color: var(--wfh);    }
 
@@ -116,9 +113,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 11px 14px;
+  padding: 10px 12px;
   border: 1.5px solid;
-  border-radius: 10px;
   font-size: 12.5px;
 }
 .status-badge.office { border-color: var(--office); color: var(--office); background: var(--office-soft); }
@@ -174,18 +170,15 @@ body {
 }
 
 .progress-bar-track {
-  height: 8px;
+  height: 7px;
   background: var(--border);
   margin-bottom: 8px;
-  border-radius: 99px;
-  overflow: hidden;
 }
 
 .progress-bar-fill {
   height: 100%;
   background: var(--office);
   width: 0%;
-  border-radius: 99px;
   transition: width 0.45s ease;
 }
 
@@ -248,7 +241,6 @@ body {
   color: var(--muted);
   font-family: ui-monospace, monospace;
   border: 1px solid transparent;
-  border-radius: 5px;
 }
 .cell.empty   {}
 .cell.weekend { color: #C8C2BA; }
@@ -316,9 +308,9 @@ body {
 }
 .field input[type="number"],
 .field input[type="time"] {
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 6px 8px;
   font-size: 12.5px;
   color: var(--ink);
   font-family: ui-monospace, monospace;
@@ -336,8 +328,8 @@ body {
   background: var(--ink);
   color: var(--paper);
   border: none;
-  border-radius: 9px;
-  padding: 10px 14px;
+  border-radius: 0;
+  padding: 9px 12px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -360,8 +352,8 @@ body {
 .secondary-btn {
   background: transparent;
   color: var(--muted);
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
+  border: 1px solid var(--border);
+  border-radius: 0;
   padding: 8px 12px;
   font-size: 10px;
   font-weight: 600;
