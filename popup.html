@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <title>ceklok</title>
@@ -12,7 +12,7 @@
         <p class="eyebrow">CEKLOK</p>
         <h1 id="todayDate" class="today-date">—</h1>
       </div>
-      <button id="settingsBtn" class="icon-btn" aria-label="Pengaturan" title="Pengaturan">⚙</button>
+      <button id="settingsBtn" class="icon-btn" aria-label="Settings" title="Settings">⚙</button>
     </header>
 
     <section id="todayAction" class="today-card"></section>
@@ -20,24 +20,24 @@
     <section class="progress-section">
       <div class="progress-label-row">
         <span class="progress-count"><span id="officeCount">0</span><span class="progress-sep">/</span><span id="targetVal">12</span></span>
-        <span class="progress-caption">ngantor bulan ini</span>
+        <span class="progress-caption">office days this month</span>
       </div>
       <div class="progress-bar-track">
         <div id="progressBar" class="progress-bar-fill"></div>
       </div>
-      <p id="insightText" class="insight">Memuat…</p>
+      <p id="insightText" class="insight">Loading…</p>
     </section>
 
     <section class="punchcard">
       <div class="punchcard-head">
         <span id="monthLabel" class="eyebrow">—</span>
         <div class="legend">
-          <span class="legend-office">■ Ngantor</span>
+          <span class="legend-office">■ Office</span>
           <span class="legend-wfh">□ WFH</span>
         </div>
       </div>
       <div class="weekday-row">
-        <span>S</span><span>S</span><span>R</span><span>K</span><span>J</span><span>S</span><span>M</span>
+        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
       </div>
       <div id="grid" class="grid"></div>
     </section>
