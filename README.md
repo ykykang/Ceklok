@@ -6,7 +6,10 @@ Chrome extension for logging office vs WFH days and tracking your monthly office
 
 ## Preview
 
-<img src="preview/2.png" alt="Ceklok popup" width="240" /> <img src="preview/1.png" alt="Ceklok settings" width="240" />
+| Main popup | Settings |
+|---|---|
+| <img src="preview/2.png" alt="Main popup" width="220" /> | <img src="preview/1.png" alt="Settings panel" width="220" /> |
+| Log today's status, track progress, and see the full month at a glance. | Adjust your monthly office target. |
 
 ## Installation (load unpacked — not published to Chrome Web Store)
 
